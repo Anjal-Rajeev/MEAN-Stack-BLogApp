@@ -14,7 +14,7 @@ app.use(logger('dev'));
 const path = require('path');
 app.use(express.static('./dist/Frontend'));
 
-
+const port = process.env.PORT || 3000;
 // const api = require('./routes/api')
 // app.use('/api',api)
 
@@ -107,6 +107,6 @@ app.get('/*', function(req, res) {
    
   
 
-app.listen(5000, ()=>{
-    console.log('----------Server is running on port 5000----------------')
+app.listen(port, ()=>{
+    console.log(`----------Server is running on port ${port}----------------`)
 }) 
