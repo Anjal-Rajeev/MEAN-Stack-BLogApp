@@ -1,9 +1,16 @@
 const express = require('express');
 const router = express.Router() // routing function
 const DATA = require('../models/model')  // db of student
+const app = new express()
 
 
-router.post('/api/blog', async(req, res)=>{
+// router.get('/api/blog', async(req, res)=>{
+//     // console.log('Call OK')
+//     console.log('get call ok')
+//     res.send('OKKK')
+// })
+
+router.post('/blog', async(req, res)=>{
 
     try {
         
@@ -30,22 +37,9 @@ router.post('/api/blog', async(req, res)=>{
 
 })
 
-router.get('/api/blog', async(req, res)=>{
-    try {
-        
-        const list = await DATA.find()
-        console.log(list[0])
-        res.send(list[0])
 
-    } catch (error) {
-        
-        console.log(error)
 
-    }
-
-})
-
-router.put('/api/blog/:id',async(req, res)=>{
+router.put('/blog/:id',async(req, res)=>{
 
     try {
          
@@ -65,7 +59,7 @@ router.put('/api/blog/:id',async(req, res)=>{
  
 } ) 
 
-router.put('/api/blog/follow/:id', async(req, res)=>{
+router.put('/blog/follow/:id', async(req, res)=>{
     try {
         let id = req.params.id
         console.log('put id:',id)
